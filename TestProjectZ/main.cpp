@@ -19,31 +19,39 @@ int main(int argc, char* argv[]) {
 
     string* a = new string[argc];
     if (argc > 1) {
-        for (int i = 0; i < argc; i++)
+        for (int i = 1; i < argc; i++)
         {
             //cout << "argv[:" << i << "] = " << endl;  ======= Ïðîâåðêà âûâîäà â êîíñîëü
             cout << argv[i] << endl; //======= Ïðîâåðêà âûâîäà â êîíñîëü
-
-            switch (stoi(argv[i]))
+            try
             {
-            case 0:
-                StartProg(MotC);
-                break;
-            case 1:
-                StartProg(KSC);
-                break;
-            case 2:
-                StartProg(CC);
-                break;
-            case 3:
-                StartProg(BC);
-                break;
-            default:
-                cout << "ÍÅÈÇÂÅÑÒÍÛÉ ÒÈÏ ÒÐÀÍÑÏÎÐÒÀ." << endl;
-                break;
+                switch (stoi(argv[i]))
+                {
+                case 0:
+                    StartProg(MotC);
+                    break;
+                case 1:
+                    StartProg(KSC);
+                    break;
+                case 2:
+                    StartProg(CC);
+                    break;
+                case 3:
+                    StartProg(BC);
+                    break;
+                default:
+                    cout << "ÍÅÈÇÂÅÑÒÍÛÉ ÒÈÏ ÒÐÀÍÑÏÎÐÒÀ." << endl;
+                    break;
+                }
             }
+            catch (const std::exception& ex)
+            {
+                cout << "Âûëåòåëà îøèáêà" << ex.what() << endl;
+            }
+            
         }
     }
+
     
     delete[] a;
     system("pause");
