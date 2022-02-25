@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
 
     string* a = new string[argc];
     if (argc > 1) {
-        for (int i = 1; i < argc; i++) //Цикл идёт с первого аргумента, поскольку он преобразует строку в int 
+        for (int i = 1; i < argc; i++)
         {
             //cout << "argv[:" << i << "] = " << endl;  ======= Проверка вывода в консоль
             cout << argv[i] << endl; //======= Проверка вывода в консоль
